@@ -11,7 +11,7 @@
 
 <div class="container">
     <h1>שעון נוכחות</h1>
-    
+
     <!-- Quick action buttons -->
     <div class="btn-group">
         <button class="btn-in" onclick="logAttendance('כניסה')">📥 כניסה</button>
@@ -26,39 +26,47 @@
             <option value="כניסה">כניסה</option>
             <option value="יציאה">יציאה</option>
         </select>
-        
+
         <label>תאריך:</label>
         <input type="date" id="manualDate">
-        
+
         <label>שעה:</label>
         <input type="time" id="manualTime">
-        
+
         <button class="btn-add" onclick="addManualLog()">הוסף לרשימה</button>
     </div>
 
     <!-- Total Hours Summary Box with Target & Overtime -->
     <div class="total-hours-box" id="totalHoursBox">
+        <div class="summary-line month-line">
+            📅 חודש נוכחי: <strong id="currentMonth">—</strong>
+        </div>
         <div class="summary-line"> שעות תקן: <strong id="regularHours">00:00</strong> / 182:00</div>
         <div class="summary-line overtime"> שעות נוספות: <strong id="overtimeHours">00:00</strong></div>
-        
+
         <!-- Progress Bar Container -->
         <div class="progress-container">
             <div class="progress-bar" id="progressBar"></div>
         </div>
     </div>
 
-    <!-- Export and clear actions -->
-    <button class="btn-export" onclick="exportToCSV()">📥 הורד דוח ל-Excel (CSV)</button>
-    <button class="btn-clear" onclick="clearData()">🗑️ נקה את כל ההיסטוריה</button>
+    <!-- Export and clear actions (single row, compact) -->
+    <div class="action-row">
+        <button class="btn-export" onclick="exportToCSV()">📥 דוח חודשי</button>
+        <button class="btn-export btn-export-all" onclick="exportToCSV(true)">📥 כל ההיסטוריה</button>
+        <button class="btn-clear" onclick="clearData()">🗑️ נקה</button>
+    </div>
 
     <!-- Logs table display -->
-    <h3>היסטוריית דיווחים</h3>
+    <h3 id="tableTitle">היסטוריית דיווחים - החודש הנוכחי</h3>
+    <button class="btn-toggle" id="toggleViewBtn" onclick="toggleView()">הצג את כל ההיסטוריה</button>
     <table>
         <thead>
             <tr>
                 <th>סוג</th>
                 <th>תאריך</th>
                 <th>שעה</th>
+                <th>שעות</th>
                 <th>פעולה</th>
             </tr>
         </thead>
@@ -66,6 +74,11 @@
         </tbody>
     </table>
 </div>
+
+<!-- Firebase SDK (compat mode for easy migration) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 
 <!-- External script file -->
 <script src="script.js"></script>
