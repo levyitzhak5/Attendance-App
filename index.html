@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>שעון נוכחות</title>
+    <!-- External stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>שעון נוכחות</h1>
+    
+    <!-- Quick action buttons -->
+    <div class="btn-group">
+        <button class="btn-in" onclick="logAttendance('כניסה')">📥 כניסה</button>
+        <button class="btn-out" onclick="logAttendance('יציאה')">📤 יציאה</button>
+    </div>
+
+    <!-- Manual entry form -->
+    <div class="manual-box">
+        <strong>➕ הוספת / עדכון דיווח ידני:</strong>
+        <label>סוג דיווח:</label>
+        <select id="manualType">
+            <option value="כניסה">כניסה</option>
+            <option value="יציאה">יציאה</option>
+        </select>
+        
+        <label>תאריך:</label>
+        <input type="date" id="manualDate">
+        
+        <label>שעה:</label>
+        <input type="time" id="manualTime">
+        
+        <button class="btn-add" onclick="addManualLog()">הוסף לרשימה</button>
+    </div>
+
+    <!-- Total Hours Summary Box with Target & Overtime -->
+    <div class="total-hours-box" id="totalHoursBox">
+        <div class="summary-line"> שעות תקן: <strong id="regularHours">00:00</strong> / 182:00</div>
+        <div class="summary-line overtime"> שעות נוספות: <strong id="overtimeHours">00:00</strong></div>
+        
+        <!-- Progress Bar Container -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
+
+    <!-- Export and clear actions -->
+    <button class="btn-export" onclick="exportToCSV()">📥 הורד דוח ל-Excel (CSV)</button>
+    <button class="btn-clear" onclick="clearData()">🗑️ נקה את כל ההיסטוריה</button>
+
+    <!-- Logs table display -->
+    <h3>היסטוריית דיווחים</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>סוג</th>
+                <th>תאריך</th>
+                <th>שעה</th>
+                <th>פעולה</th>
+            </tr>
+        </thead>
+        <tbody id="logTable">
+        </tbody>
+    </table>
+</div>
+
+<!-- External script file -->
+<script src="script.js"></script>
+</body>
+</html>

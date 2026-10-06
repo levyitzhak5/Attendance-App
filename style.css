@@ -1,0 +1,199 @@
+/* Base Layout & Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 15px;
+    text-align: center;
+    direction: rtl;
+}
+
+/* Container Structure */
+.container {
+    max-width: 450px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Typography */
+h1 { 
+    color: #333; 
+    font-size: 24px; 
+    margin-bottom: 20px; 
+}
+
+h3 { 
+    color: #555; 
+    margin-top: 25px; 
+    margin-bottom: 10px; 
+    font-size: 18px; 
+}
+
+/* Button Layouts and Elements */
+.btn-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+button {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:active { 
+    opacity: 0.8; 
+    transform: scale(0.98); 
+}
+
+/* Specific Button Color Variants */
+.btn-in { 
+    background-color: #28a745; 
+    color: white; 
+    flex: 1; 
+    font-size: 18px; 
+}
+
+.btn-out { 
+    background-color: #dc3545; 
+    color: white; 
+    flex: 1; 
+    font-size: 18px; 
+}
+
+.btn-export { 
+    background-color: #007bff; 
+    color: white; 
+    width: 100%; 
+    margin-bottom: 10px; 
+}
+
+.btn-add { 
+    background-color: #17a2b8; 
+    color: white; 
+    width: 100%; 
+    margin-top: 10px; 
+}
+
+.btn-clear { 
+    background-color: #6c757d; 
+    color: white; 
+    width: 100%; 
+    font-size: 13px; 
+    padding: 6px; 
+}
+
+/* Total Hours & Target Progress Box */
+.total-hours-box {
+    background-color: #ffffff;
+    border: 1px solid #c3e6cb;
+    color: #573315;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.summary-line {
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary-line.overtime {
+    color: #d9534f;
+}
+
+.summary-line strong {
+    font-size: 16px;
+}
+
+/* Progress Bar Visual Element */
+.progress-container {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 10px;
+    height: 12px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #28a745;
+    transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+/* Manual Entry Container & Form Controls */
+.manual-box {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.manual-box label { 
+    font-size: 13px; 
+    font-weight: bold; 
+    display: block; 
+    margin-top: 5px; 
+}
+
+.manual-box input, 
+.manual-box select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 3px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Data Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 13px;
+    text-align: center;
+}
+
+th { 
+    background-color: #f8f9fa; 
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 2px 5px;
+}
+
+/* Dynamic status text colors */
+.status-in {
+    color: green;
+    font-weight: bold;
+}
+
+.status-out {
+    color: red;
+    font-weight: bold;
+}
